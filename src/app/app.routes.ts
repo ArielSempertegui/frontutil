@@ -61,6 +61,14 @@ import { RoutedAlfonsoAdminRemove } from './component/alfonso/routed-admin-remov
 import { RoutedAlfonsoUserPlist } from './component/alfonso/routed-user-plist/routed-user-plist';
 import { RoutedAlfonsoUserView } from './component/alfonso/routed-user-view/routed-user-view';
 
+import { CastanyeraRoutedAdminPlist } from './component/castanyera/castanyera-routed-admin-plist/routed-admin-plist';
+import { CastanyeraRoutedAdminView } from './component/castanyera/castanyera-routed-admin-view/routed-admin-view';
+import { CastanyeraRoutedUserPlist } from './component/castanyera/castanyera-routed-user-plist/routed-user-plist';
+import { CastanyeraRoutedUserView } from './component/castanyera/castanyera-routed-user-view/routed-user-view';
+import { CastanyeraRoutedAdminEdit } from './component/castanyera/castanyera-routed-admin-edit/routed-admin-edit';
+import { CastanyeraRoutedAdminNew } from './component/castanyera/castanyera-routed-admin-new/routed-admin-new';
+import { CastanyeraRoutedAdminRemove } from './component/castanyera/castanyera-routed-admin-remove/routed-admin-remove';
+
 //imports Alan
 import { RoutedAlcanyizMenu } from './component/alcanyiz/routed-alcanyiz-menu/routed-alcanyiz-menu'
 import { RoutedAlcanyizUserView } from './component/alcanyiz/routed-alcanyiz-user-view/routed-alcanyiz-user-view';
@@ -97,6 +105,14 @@ export const routes: Routes = [
   { path: 'blog/new', component: RoutedAdminNew },
   { path: 'blog/edit/:id', component: RoutedAdminEdit },
   { path: 'blog/remove/:id', component: RoutedAdminRemove },
+
+  { path: 'castanyera', component: CastanyeraRoutedUserPlist },
+  { path: 'castanyera/post/:id', component: CastanyeraRoutedUserView },
+  { path: 'castanyera/plist', component: CastanyeraRoutedAdminPlist },
+  { path: 'castanyera/view/:id', component: CastanyeraRoutedAdminView },
+  { path: 'castanyera/new', component: CastanyeraRoutedAdminNew },
+  { path: 'castanyera/edit/:id', component: CastanyeraRoutedAdminEdit },
+  { path: 'castanyera/remove/:id', component: CastanyeraRoutedAdminRemove },
   // Rutas de Fernandez Ideas - Administración
   { path: 'fernandez-idea/admin/plist', component: FernandezRoutedAdminPlist },
   { path: 'fernandez-idea/admin/view/:id', component: FernandezRoutedAdminView },
