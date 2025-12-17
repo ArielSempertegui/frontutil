@@ -5,8 +5,8 @@ import { IPage } from '../../../model/plist';
 import { Paginacion } from "../../shared/paginacion/paginacion";
 import { BotoneraRpp } from "../../shared/botonera-rpp/botonera-rpp";
 import { DatetimePipe } from "../../../pipe/datetime-pipe";
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 
 @Component({
   selector: 'app-sempertegui-routed-admin-plist',
@@ -22,10 +22,15 @@ export class SemperteguiRoutedAdminPlist {
   rellenando: boolean = false;
   rellenaOk: number | null = null;
   rellenaError: string | null = null;
+  // track id being published/unpublished to show spinner per-row
+  publishingId: number | null = null;
+  publishingAction: 'publicar' | 'despublicar' | null = null;
 
   constructor(private semperteguiService: SemperteguiService) { }
 
   oBotonera: string[] = [];
+  // orderField: string = 'id';
+  // orderDirection: string = 'asc';
 
   ngOnInit() {
     this.getPage();
@@ -47,6 +52,18 @@ export class SemperteguiRoutedAdminPlist {
       },
     });
   }
+
+  // onOrder(order: string) {
+  //   if (this.orderField === order) {
+  //     this.orderDirection = this.orderDirection === 'asc' ? 'desc' : 'asc';
+  //   } else {
+  //     this.orderField = order;
+  //     this.orderDirection = 'asc';
+  //   }
+  //   this.numPage = 0;
+  //   this.getPage();
+  //   return false;
+  // }
 
   goToPage(numPage: number) {
     this.numPage = numPage;

@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 
 @Component({
   selector: 'app-sempertegui-routed-admin-new',
@@ -26,7 +26,7 @@ export class SemperteguiRoutedAdminNew implements OnInit {
 
   initForm(): void {
     this.movieForm = this.fb.group({
-      nombre: ['', [
+      titulo: ['', [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(100)
@@ -62,7 +62,7 @@ export class SemperteguiRoutedAdminNew implements OnInit {
 
     this.submitting = true;
     const payload: Partial<IPelicula> = {
-      nombre: this.movieForm.value.nombre,
+      titulo: this.movieForm.value.titulo,
       genero: this.movieForm.value.genero,
       director: this.movieForm.value.director,
       puntuacion: Number(this.movieForm.value.puntuacion),
@@ -82,8 +82,8 @@ export class SemperteguiRoutedAdminNew implements OnInit {
     });
   }
 
-  get nombre() {
-    return this.movieForm.get('nombre');
+  get titulo() {
+    return this.movieForm.get('titulo');
   }
 
   get genero() {

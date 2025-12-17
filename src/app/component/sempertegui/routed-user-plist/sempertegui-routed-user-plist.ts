@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { IPage } from '../../../model/plist';
 import { Paginacion } from "../../shared/paginacion/paginacion";
 import { MovieCardComponent } from "../movie-card/movie-card";
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
 
 
 @Component({

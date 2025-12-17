@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
 
 @Component({
     selector: 'app-sempertegui-routed-admin-edit',
@@ -38,7 +38,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
 
     initForm(): void {
         this.movieForm = this.fb.group({
-            nombre: ['', [
+            titulo: ['', [
                 Validators.required,
                 Validators.minLength(2),
                 Validators.maxLength(100)
@@ -71,7 +71,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
             next: (movie: IPelicula) => {
                 this.originalMovie = movie;
                 this.movieForm.patchValue({
-                    nombre: movie.nombre,
+                    titulo: movie.titulo,
                     genero: movie.genero,
                     director: movie.director,
                     puntuacion: movie.puntuacion,
@@ -96,7 +96,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
         this.submitting = true;
         const payload: Partial<IPelicula> = {
             id: this.movieId!,
-            nombre: this.movieForm.value.nombre,
+            titulo: this.movieForm.value.titulo,
             genero: this.movieForm.value.genero,
             director: this.movieForm.value.director,
             puntuacion: Number(this.movieForm.value.puntuacion),
@@ -116,8 +116,8 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
         });
     }
 
-    get nombre() {
-        return this.movieForm.get('nombre');
+    get titulo() {
+        return this.movieForm.get('titulo');
     }
 
     get genero() {

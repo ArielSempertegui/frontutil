@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SemperteguiUnroutedAdminView } from "../unrouted-admin-view/sempertegui-unrouted-admin-view";
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 
 @Component({
   selector: 'app-sempertegui-routed-admin-remove',

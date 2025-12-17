@@ -14,28 +14,28 @@
         }
 
         <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" novalidate>
-          <!-- Nombre -->
+          <!-- Título -->
           <div class="mb-4">
-            <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+            <label for="titulo" class="form-label">Título <span class="text-danger">*</span></label>
             <input
               type="text"
               class="form-control"
-              [class.is-invalid]="nombre?.invalid && nombre?.touched"
-              [class.is-valid]="nombre?.valid && nombre?.touched"
-              id="nombre"
-              formControlName="nombre"
+              [class.is-invalid]="titulo?.invalid && titulo?.touched"
+              [class.is-valid]="titulo?.valid && titulo?.touched"
+              id="titulo"
+              formControlName="titulo"
               placeholder="Introduce el título del post"
             />
-            @if (nombre?.invalid && nombre?.touched) {
+            @if (titulo?.invalid && titulo?.touched) {
             <div class="invalid-feedback">
-              @if (nombre?.errors?.['required']) {
-                <span>El campo nombre es obligatorio.</span>
+              @if (titulo?.errors?.['required']) {
+                <span>El campo titulo es obligatorio.</span>
               }
-              @if (nombre?.errors?.['minlength']) {
-                <span>El campo nombre debe tener al menos 2 caracteres.</span>
+              @if (titulo?.errors?.['minlength']) {
+                <span>El campo titulo debe tener al menos 2 caracteres.</span>
               }
-              @if (nombre?.errors?.['maxlength']) {
-                <span>El campo nombre no puede superar 100 caracteres.</span>
+              @if (titulo?.errors?.['maxlength']) {
+                <span>El campo titulo no puede superar 100 caracteres.</span>
               }
             </div>
             }

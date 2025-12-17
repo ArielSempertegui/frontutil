@@ -1,7 +1,7 @@
 // Define la estructura de los datos de una película.
 export interface IPelicula {
   id: number;
-  nombre: string;
+  titulo: string;
   genero: string;
   director: string;
   puntuacion: number; // Puntuación del 1 al 10

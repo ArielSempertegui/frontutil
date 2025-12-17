@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
-import { SemperteguiService } from '../../../service/sempertegui/semperteguiService';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
+import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
 import { SemperteguiUnroutedAdminView } from '../unrouted-admin-view/sempertegui-unrouted-admin-view';
 
 @Component({

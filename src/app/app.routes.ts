@@ -275,11 +275,11 @@ export const routes: Routes = [
   { path: 'alcalde/remove/:id', component: AlcaldeRoutedAdminRemove },
   //
   { path: 'sempertegui', component: SemperteguiRoutedUserPlist },
-  { path: 'sempertegui/plist', component: SemperteguiRoutedAdminPlist },
-  { path: 'sempertegui/view/:id', component: SemperteguiRoutedAdminView },
-  { path: 'sempertegui/edit/:id', component: SemperteguiRoutedAdminEdit },
-  { path: 'sempertegui/remove/:id', component: SemperteguiRoutedAdminRemove },
-  { path: 'sempertegui/new', component: SemperteguiRoutedAdminNew },
+  { path: 'sempertegui/plist', component: SemperteguiRoutedAdminPlist, canActivate: [AdminGuard] },
+  { path: 'sempertegui/view/:id', component: SemperteguiRoutedAdminView, canActivate: [AdminGuard] },
+  { path: 'sempertegui/edit/:id', component: SemperteguiRoutedAdminEdit, canActivate: [AdminGuard] },
+  { path: 'sempertegui/remove/:id', component: SemperteguiRoutedAdminRemove, canActivate: [AdminGuard] },
+  { path: 'sempertegui/new', component: SemperteguiRoutedAdminNew, canActivate: [AdminGuard] },
   //
   { path: 'alcanyiz', component: RoutedAlcanyizMenu },
   { path: 'alcanyiz/allquestion', component: RoutedAlcanyizUserList },

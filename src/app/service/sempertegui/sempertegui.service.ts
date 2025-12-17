@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { serverURL } from '../../environment/environment';
 import { IPage } from '../../model/plist';
-import { IPelicula } from '../../model/sempertegui/semperteguiInterface';
+import { IPelicula } from '../../model/sempertegui/sempertegui.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({

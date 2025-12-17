@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IPelicula } from '../../../model/sempertegui/semperteguiInterface';
+import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 
 @Component({
   selector: 'app-movie-card',
