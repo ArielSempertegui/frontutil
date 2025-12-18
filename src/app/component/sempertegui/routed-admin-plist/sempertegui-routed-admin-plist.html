@@ -81,58 +81,47 @@
 
   <div class="row">
   <div class="col">
-    <div class="card shadow-sm border-0">
+    <div class="card shadow-sm">
       <div class="table-responsive">
         <table class="table table-hover align-middle mb-0" style="min-width: 1100px;">
           <thead class="table-light text-secondary">
             <tr>
-  <th scope="col" (click)="sortColumn('id')" class="sortable text-center" [class.sortable-active]="orderField === 'id'" style="width: 60px;">
-    ID <i class="bi" [ngClass]="orderField === 'id' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('titulo')" class="sortable" [class.sortable-active]="orderField === 'titulo'" style="width: 150px;">
-    Título <i class="bi" [ngClass]="orderField === 'titulo' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" style="width: 110px;">Género</th>
-
-  <th scope="col" (click)="sortColumn('director')" class="sortable" [class.sortable-active]="orderField === 'director'" style="width: 100px;">
-    Director <i class="bi" [ngClass]="orderField === 'director' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('puntuacion')" class="sortable text-center" [class.sortable-active]="orderField === 'puntuacion'" style="width: 90px;">
-    Puntos <i class="bi" [ngClass]="orderField === 'puntuacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('anyo')" class="sortable text-center" [class.sortable-active]="orderField === 'anyo'" style="width: 80px;">
-    Año <i class="bi" [ngClass]="orderField === 'anyo' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('publicado')" class="sortable text-center" [class.sortable-active]="orderField === 'publicado'" style="width: 100px;">
-    Estado <i class="bi" [ngClass]="orderField === 'publicado' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('fechaCreacion')" class="sortable text-center" [class.sortable-active]="orderField === 'fechaCreacion'" style="width: 100px;">
-    Creado <i class="bi" [ngClass]="orderField === 'fechaCreacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" (click)="sortColumn('fechaModificacion')" class="sortable text-center" [class.sortable-active]="orderField === 'fechaModificacion'" style="width: 100px;">
-    Modificado <i class="bi" [ngClass]="orderField === 'fechaModificacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
-  </th>
-
-  <th scope="col" class="text-center" style="width: 160px;">Acciones</th>
-</tr>
+              <th scope="col" (click)="sortColumn('id')" class="sortable text-center" [class.sortable-active]="orderField === 'id'" style="width: 60px;">
+                ID <i class="bi" [ngClass]="orderField === 'id' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('titulo')" class="sortable" [class.sortable-active]="orderField === 'titulo'" style="width: 140px;">
+                Título <i class="bi" [ngClass]="orderField === 'titulo' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" style="width: 110px;">Género</th>
+              <th scope="col" (click)="sortColumn('director')" class="sortable" [class.sortable-active]="orderField === 'director'" style="width: 110px;">
+                Director <i class="bi" [ngClass]="orderField === 'director' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('puntuacion')" class="sortable text-center" [class.sortable-active]="orderField === 'puntuacion'" style="width: 120px;">
+                Puntuación <i class="bi" [ngClass]="orderField === 'puntuacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('anyo')" class="sortable text-center" [class.sortable-active]="orderField === 'anyo'" style="width: 70px;">
+                Año <i class="bi" [ngClass]="orderField === 'anyo' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('publicado')" class="sortable text-center" [class.sortable-active]="orderField === 'publicado'" style="width: 100px;">
+                Estado <i class="bi" [ngClass]="orderField === 'publicado' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('fechaCreacion')" class="sortable" [class.sortable-active]="orderField === 'fechaCreacion'" style="width: 100px;">
+                Creado <i class="bi" [ngClass]="orderField === 'fechaCreacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" (click)="sortColumn('fechaModificacion')" class="sortable" [class.sortable-active]="orderField === 'fechaModificacion'" style="width: 120px;">
+                Modificado <i class="bi" [ngClass]="orderField === 'fechaModificacion' ? (orderDirection === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-caret-down'"></i>
+              </th>
+              <th scope="col" class="text-center" style="width: 160px;">Acciones</th>
+            </tr>
           </thead>
           <tbody>
             @for (movie of oPage?.content; track movie.id) {
               <tr>
                 <td class="text-muted fw-bold">{{ movie.id }}</td>
                 <td class="fw-semibold text-primary">{{ movie.titulo }}</td>
-                <td><span>{{ movie.genero }}</span></td>
+                <td class="fw-semibold text-dark">{{ movie.genero }}</td>
                 <td>{{ movie.director }}</td>
-                <td class="text-center">
-                   <span class="fw-bold">{{ movie.puntuacion }}</span>
-                </td>
+                <td class="text-center"><span class="fw-bold">{{ movie.puntuacion }}</span></td>
                 <td class="text-center">{{ movie.anyo }}</td>
                 <td class="text-center">
                   @if (movie.publicado) {
@@ -171,7 +160,7 @@
                 </td>
               </tr>
             } @empty {
-              <tr>
+              <tr class="pe-none">
                 <td colspan="10" class="text-center py-5 text-muted">
                   <i class="bi bi-film fs-1 d-block mb-2"></i>
                   No hay películas en el catálogo todavía
