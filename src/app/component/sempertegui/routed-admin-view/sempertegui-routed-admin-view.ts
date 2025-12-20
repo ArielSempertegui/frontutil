@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
+import { ActivatedRoute, RouterLink} from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 import { SemperteguiUnroutedAdminView } from '../unrouted-admin-view/sempertegui-unrouted-admin-view';
 
 @Component({
   selector: 'app-sempertegui-routed-admin-view',
-  imports: [SemperteguiUnroutedAdminView],
+  imports: [SemperteguiUnroutedAdminView, RouterLink],
   templateUrl: './sempertegui-routed-admin-view.html',
   styleUrl: './sempertegui-routed-admin-view.css',
 })

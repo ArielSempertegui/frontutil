@@ -9,5 +9,4 @@ import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 })
 export class SemperteguiUnroutedAdminView {
   @Input() movie: IPelicula | null = null;
-  @Input() ocultarBtnVolver?: boolean = false;
 }
