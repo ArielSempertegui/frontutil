@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
 import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
@@ -7,10 +7,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-sempertegui-routed-admin-edit',
-    imports: [ReactiveFormsModule, RouterLink],
+    imports: [ReactiveFormsModule],
     templateUrl: './sempertegui-routed-admin-edit.html',
     styleUrl: './sempertegui-routed-admin-edit.css',
 })
@@ -21,6 +22,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
     private semperteguiService = inject(SemperteguiService);
     private dialog = inject(MatDialog);
     private snackBar = inject(MatSnackBar);
+    private location = inject(Location);
 
     movieForm!: FormGroup;
     movieId: number | null = null;
@@ -34,10 +36,10 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
         const id = this.route.snapshot.paramMap.get('id');
         if (id) {
             this.movieId = +id;
-            this.loadMovie(+id);
+            this.getMovie(+id);
         } else {
-            this.loading = false;
             this.error = 'ID de película no válido';
+            this.loading = false;
         }
     }
 
@@ -77,7 +79,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
         });
     }
 
-    loadMovie(id: number): void {
+    getMovie(id: number): void {
         this.semperteguiService.get(id).subscribe({
             next: (movie: IPelicula) => {
                 this.originalMovie = movie;
@@ -136,6 +138,10 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
                 console.error(err);
             },
         });
+    }
+
+    goBack(): void {
+        this.location.back();
     }
 
     // Guard: ask confirmation if the form has unsaved changes

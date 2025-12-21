@@ -10,7 +10,7 @@ import { BotoneraRpp } from "../../shared/botonera-rpp/botonera-rpp";
 import { DatetimePipe } from "../../../pipe/datetime-pipe";
 import { MatDialog } from '@angular/material/dialog'; // MatDialogModule
 import { MatSnackBar } from '@angular/material/snack-bar'; // , MatSnackBarModule
-import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
+import { ConfirmDeleteAllDialog } from '../confirm-dialog/confirm-delete-all-dialog';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -111,7 +111,7 @@ export class SemperteguiRoutedAdminPlist {
   }
 
   openEmptyConfirm() {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    const dialogRef = this.dialog.open(ConfirmDeleteAllDialog, {
       data: {
         title: 'Vaciar Registros de la Tabla Película',
         message: '¿Está seguro de que desea borrar TODOS los registros? Esta acción es irreversible.'

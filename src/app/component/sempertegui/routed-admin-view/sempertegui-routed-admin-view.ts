@@ -4,6 +4,7 @@ import { SemperteguiService } from '../../../service/sempertegui/sempertegui.ser
 import { ActivatedRoute, RouterLink} from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SemperteguiUnroutedAdminView } from '../unrouted-admin-view/sempertegui-unrouted-admin-view';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-sempertegui-routed-admin-view',
@@ -13,16 +14,18 @@ import { SemperteguiUnroutedAdminView } from '../unrouted-admin-view/sempertegui
 })
 export class SemperteguiRoutedAdminView {
   movie: IPelicula | null = null;
+  loading: boolean = true;
+  error: string | null = null;
 
-  constructor(private semperteguiService: SemperteguiService, private route: ActivatedRoute) {
+  constructor(private semperteguiService: SemperteguiService, private route: ActivatedRoute, private location: Location) {
     // Obtener el ID del la película desde la ruta
-    const idParam = this.route.snapshot.paramMap.get('id');
-    const movieId = idParam ? Number(idParam) : NaN;
-    if (isNaN(movieId)) {
-      console.error('Invalid movie id:', idParam);
-      return;
-    }
-    this.getMovie(movieId);
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+          this.getMovie(+id);
+      } else {
+          this.error = 'ID de película no válido';
+          this.loading = false;
+      }
   }
 
   ngOnInit() { }
@@ -31,10 +34,18 @@ export class SemperteguiRoutedAdminView {
     this.semperteguiService.get(movieId).subscribe({
       next: (data: IPelicula) => {
         this.movie = data;
+        this.loading = false;
       },
       error: (error: HttpErrorResponse) => {
-        console.error('Error fetching movie:', error);
+        this.error = 'Error cargando el registro';
+        this.loading = false;
+        console.error(error);
       },
     });
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 }

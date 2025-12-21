@@ -5,6 +5,7 @@ import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SemperteguiUnroutedAdminView } from "../unrouted-admin-view/sempertegui-unrouted-admin-view";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sempertegui-routed-admin-remove',
@@ -17,6 +18,7 @@ export class SemperteguiRoutedAdminRemove implements OnInit {
   private router = inject(Router);
   private semperteguiService = inject(SemperteguiService);
   private snackBar = inject(MatSnackBar);
+  private location = inject(Location)
 
   movie: IPelicula | null = null;
   loading: boolean = true;
@@ -24,16 +26,16 @@ export class SemperteguiRoutedAdminRemove implements OnInit {
   deleting: boolean = false;
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (!id) {
-      this.error = 'ID no válido';
-      this.loading = false;
-      return;
-    }
-    this.load(+id);
+        const id = this.route.snapshot.paramMap.get('id');
+        if (id) {
+            this.getMovie(+id);
+        } else {
+            this.error = 'ID de película no válido';
+            this.loading = false;
+        }
   }
 
-  load(id: number) {
+  getMovie(id: number) {
     this.semperteguiService.get(id).subscribe({
       next: (data: IPelicula) => {
         this.movie = data;
@@ -65,7 +67,7 @@ export class SemperteguiRoutedAdminRemove implements OnInit {
     });
   }
 
-  cancel() {
-    this.router.navigate(['/sempertegui/plist']);
+  goBack() {
+    this.location.back();
   }
 }
