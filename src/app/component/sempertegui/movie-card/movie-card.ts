@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 export class MovieCardComponent {
   // El componente recibe un objeto 'movie' como entrada.
   @Input() movie!: IPelicula;
+  @Input() isSessionActive!: boolean;
   private readonly dialog = inject(MatDialog);
 
   openDialog() {

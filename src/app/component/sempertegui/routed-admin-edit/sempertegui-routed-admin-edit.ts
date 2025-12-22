@@ -149,12 +149,7 @@ export class SemperteguiRoutedAdminEdit implements OnInit {
         if (!this.movieForm || !this.movieForm.dirty) {
             return true;
         }
-        const dialogRef = this.dialog.open(ConfirmLeaveDialog, {
-            data: {
-                title: 'Cambios sin guardar',
-                message: '¿Desea salir sin guardar los cambios?'
-            }
-        });
+        const dialogRef = this.dialog.open(ConfirmLeaveDialog);
         return dialogRef.afterClosed();
     }
 

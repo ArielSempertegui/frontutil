@@ -23,20 +23,23 @@
       @for (movie of oPage?.content; track movie.id ) {
       <div class="post-row mt-5">
         <div class="post-item">
-          <app-movie-card [movie]="movie"> </app-movie-card>
+          <app-movie-card [movie]="movie" [isSessionActive]="isSessionActive"> </app-movie-card>
         </div>
       </div>
       }
     </div>
 
-    <div class="d-flex justify-content-center mt-5">
-        <app-paginacion
-          [numPage]="numPage"
-          [numPages]="oPage?.totalPages || 1"
-          (pageChange)="goToPage($event)"
-        >
-        </app-paginacion>
-    </div>
+    @if(totalElementsCount > numRpp) {
+      <div class="d-flex justify-content-center mt-5">
+          <app-paginacion
+            [numPage]="numPage"
+            [numPages]="oPage?.totalPages || 1"
+            (pageChange)="goToPage($event)"
+          >
+          </app-paginacion>
+      </div>
+
+    }
   } @else {
     <div class="d-flex justify-content-center mt-5">
       <div class="alert alert-secondary text-center w-100" style="max-width:720px">

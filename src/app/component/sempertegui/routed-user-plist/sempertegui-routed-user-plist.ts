@@ -5,6 +5,7 @@ import { IPelicula } from '../../../model/sempertegui/sempertegui.interface';
 import { SemperteguiService } from '../../../service/sempertegui/sempertegui.service';
 import { Paginacion } from "../../shared/paginacion/paginacion";
 import { MovieCardComponent } from "../movie-card/movie-card";
+import { SessionService } from '../../../service/session.service';
 
 
 @Component({
@@ -19,8 +20,11 @@ export class SemperteguiRoutedUserPlist {
   numRpp: number = 3;
   // contador actual de elementos en la tabla pública
   totalElementsCount: number = 0;
+  isSessionActive: boolean = false;
 
-  constructor(private semperteguiService: SemperteguiService) { }
+  constructor(private semperteguiService: SemperteguiService, private sessionService: SessionService) { 
+    this.isSessionActive = this.sessionService.isSessionActive();
+  }
 
   oBotonera: string[] = [];
   

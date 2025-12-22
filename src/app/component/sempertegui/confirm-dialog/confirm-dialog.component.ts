@@ -50,9 +50,9 @@ export class ConfirmDeleteDialog {
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
   template: `
-    <h2 mat-dialog-title>{{ data.title || 'Borrar Película' }}</h2>
+    <h2 mat-dialog-title>Cambios sin guardar</h2>
     <mat-dialog-content>
-      <p>{{ data.message || '¿Confirmar la acción?' }}</p>
+      <p>¿Desea salir sin guardar los cambios?</p>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancelar</button>
@@ -61,6 +61,5 @@ export class ConfirmDeleteDialog {
   `,
 })
 export class ConfirmLeaveDialog {
-  constructor(public dialogRef: MatDialogRef<ConfirmLeaveDialog>, @Inject(MAT_DIALOG_DATA) public data: { title?: string; message?: string }) {}
 
 }

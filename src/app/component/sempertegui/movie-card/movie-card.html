@@ -18,10 +18,12 @@
     <div class="top-content">
       <div class="header-content">
         <h3 class="movie-title">{{ movie.titulo }}</h3>
-        @if(movie.publicado) {
-          <span class="badge rounded-pill bg-success px-3 fw-medium">Público</span>
-        } @else {
-          <span class="badge rounded-pill bg-secondary px-3 fw-medium">Oculto</span>
+        @if(isSessionActive) {
+          @if(movie.publicado) {
+            <span class="badge rounded-pill bg-success px-3 fw-medium">Público</span>
+          } @else {
+            <span class="badge rounded-pill bg-secondary px-3 fw-medium">Oculto</span>
+          }
         }
       </div>
       <div class="movie-info-grid">

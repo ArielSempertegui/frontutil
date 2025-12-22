@@ -45,7 +45,7 @@
 
         <button
           class="btn btn-danger btn-sm position-relative"
-          [disabled]="emptying"
+          [disabled]="emptying || totalElementsCount === 0"
           (click)="openEmptyConfirm()"
           title="Vaciar tabla"
         >
